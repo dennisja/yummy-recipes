@@ -1,69 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="icon" href="../../favicon.ico">
 
-        <title>Welcome To Yummy Recipes</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-        <!-- Bootstrap core CSS -->
-        <link href="assets/styles/external/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/styles/external/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <title>Welcome To Yummy Recipes</title>
 
-        <!-- Custom styles for this template -->
-        <link href="starter-template.css" rel="stylesheet">
-    </head>
+    <!-- Bootstrap core CSS -->
+    <link href="assets/styles/external/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/styles/external/fontawesome/css/font-awesome.min.css" rel="stylesheet">
 
-    <body>
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="assets/styles/custom/main.css">
+</head>
 
-        <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
-            <div class="container">
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="navbar-brand" href="#">Yummy Recipes</a>
+<body>
 
-                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-home"></i> Home <span class="sr-only"></span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-coffee"></i> Recipes</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> User</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                <a class="dropdown-item" href="#">Profile</a>
-                                <a class="dropdown-item" href="#">Log Out</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
+    <nav class="navbar navbar-toggleable-md navbar-custom fixed-top" id="navbar-custom">
         <div class="container">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-bars" id="custom-toggle-button"></span>
+                </button>
+            <a class="navbar-brand" href="#">Yummy Recipes</a>
 
-            <div class="starter-template">
-                <h1>Bootstrap starter template<span class="fa fa-user"></span></h1>
-                <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa fa-home"></i> Home <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa fa-coffee"></i> Recipes</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> User</a>
+                        <div class="dropdown-menu navbar-custom custom-dropdown" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#">Log Out</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <p id="yummy-description">
+                    <strong>
+                        <em>
+                    Meet Yummy Recipes, a cool place where you can store, save, share and keep track of those cool recipes, the recipes you cherish.
+                    Can't wait to start managing your recipes? signin or register using the forms provided
+                        </em>
+             </strong>
+                </p>
             </div>
 
-        </div><!-- /.container -->
+            <div class="col-sm-6">
+                <!--login form-->
+                <section class="custom-forms">
+                    <div class="card card-custom">
+                        <div class="card-block">
+                            <header class="form-headers custom-bg">
+                                <h2 class="card-title"><i class="fa fa-sign-in"></i> Sign in</h2>
+                            </header>
+                            <form method="POST" id="login-form">
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label for="email">Email address</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control form-control-sm" id="email" name="email" placeholder="johndoe@example.com">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label for="password">Password</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control form-control-sm" id="password" name="password" placeholder="Your Password">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 offset-sm-5">
+                                        <button type="submit" class="btn btn-sm btn-custom">Signin</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <!--login form-->
+                <section class="custom-forms">
+                    <div class="card card-custom">
+                        <div class="card-block">
+                            <header class="form-headers custom-bg">
+                                <h2 class="card-title"><i class="fa fa-user-register"></i> Register</h2>
+                            </header>
+                            <form method="POST" id="login-form">
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label for="fname">First Name</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control form-control-sm" id="fname" name="fname" placeholder="e.g John" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label for="lname">Last Name</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control form-control-sm" id="lname" name="lname" placeholder="johndoe@example.com" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label for="email_reg">Email address</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control form-control-sm" id="email_reg" name="email" placeholder="johndoe@example.com" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label for="password_reg">Password</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control form-control-sm" id="password_reg" name="password" placeholder="Your Password" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label for="c_password">Confirm Password</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control form-control-sm" id="c_password" name="password" placeholder="Retype Password" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 offset-sm-5">
+                                        <button type="submit" class="btn btn-sm btn-custom">Register</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
 
 
-        <!-- Bootstrap core JavaScript
+    <!-- Bootstrap core JavaScript
         ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="assets/styles/external/bootstrap/js/jquery.slim.min.js" ></script>
-        <script>window.jQuery || document.write('<script src="assets/styles/external/bootstrap/js/jquery.slim.min.js"><\/script>')</script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" ></script>
-        <script src="assets/styles/external/bootstrap/js/bootstrap.min.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="assets/styles/external/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
-    </body>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/styles/external/bootstrap/js/jquery.slim.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="assets/styles/external/bootstrap/js/jquery.slim.min.js"><\/script>')
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="assets/styles/external/bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/styles/external/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
 </html>

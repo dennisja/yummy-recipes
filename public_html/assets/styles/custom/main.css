@@ -1,0 +1,74 @@
+body{
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: #FFF3E0;
+}
+
+/**customizing the navigation bar*/
+/* change the background color */
+.navbar-custom, .custom-bg, .btn-custom {
+    background-color: #FF9800;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text,
+.custom-dropdown .dropdown-item {
+    color: rgb(255,255,255);
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: rgb(255,255,255);
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+}
+
+#custom-toggle-button{
+    color: white;
+}
+
+.form-headers h2{
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+}
+
+.form-headers{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 2px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    color: white;
+}
+
+#yummy-description{
+    margin-top: 100px;
+}
+
+.btn-custom{
+    color: white;
+}
+
+.btn-custom:hover{
+    border: 1px solid #ff9800;
+    color: #ff9800;
+    background-color:white;
+}
+
+.card-custom{
+    border: 1px solid #FFE0B2;
+    box-shadow: 2px 2px 1px #FFE0B2;
+    -moz-box-shadow: 2px 2px 1px #FFE0B2;
+    -webkit-box-shadow: 2px 2px 1px #FFE0B2;
+    -o-box-shadow: 2px 2px 1px #FFE0B2;
+    -ms-box-shadow: 2px 2px 1px #FFE0B2;
+}
+
+.custom-forms{
+    margin-bottom: 15px;
+}
