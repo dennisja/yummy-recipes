@@ -29,13 +29,13 @@ body{
     color: white;
 }
 
-.form-headers h2{
+.form-headers h2, .section-headers h1{
     font-size: 18px;
     text-align: center;
     margin: 0;
 }
 
-.form-headers{
+.form-headers, .section-headers{
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -60,6 +60,10 @@ body{
     background-color:white;
 }
 
+.overide-bgcolor{
+    background-color: white;
+}
+
 .card-custom{
     border: 1px solid #FFE0B2;
     box-shadow: 2px 2px 1px #FFE0B2;
@@ -71,4 +75,52 @@ body{
 
 .custom-forms{
     margin-bottom: 15px;
+}
+
+.profile-card{
+    padding: 5px;
+}
+
+.profile-card .p-card-top{
+    background:  #ff9800
+}
+.profile-card .p-card-top .media img{
+    margin: 2px;
+}
+
+.profile-card .p-card-bottom{
+    width: 100%;
+}
+
+.profile-pic{
+    width: 64px;
+    height: 64px;
+}
+
+.round-corners-sm{
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.p-card-bottom .recipes-summary{
+    width: 45%;
+    display: inline-block;
+}
+
+.links{
+    color: #ff9800;
+}
+
+.links:hover{
+    text-decoration: underline;
+}
+
+.recipes-section{
+    padding: 10px;
+}
+
+.recipe-card{
+    border: 1px solid #FFE0B2;
+    box-shadow: 1px 1px 1px #FFF3E0;
 }
