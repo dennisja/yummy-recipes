@@ -4,7 +4,7 @@ from app.simulators import UserNotFoundException, User, Users, NullUserError
 
 
 class ValidationTestCases(unittest.TestCase):
-    def setUp():
+    def setUp(self):
         self.validator = Validate()
 
     def test_empty_required_form_field(self):
@@ -37,7 +37,7 @@ class ValidationTestCases(unittest.TestCase):
 
     def test_invalid_key_from_form(self):
         form_data = {
-            "absent_key": "people"
+            "absent_key": ""
         }
         rules = {"absent_key": {
             "required": True
@@ -53,8 +53,8 @@ class ValidationTestCases(unittest.TestCase):
 
 
 class UserSimulatorTestCases(unittest.TestCase):
-    def setUp():
-        self.user = User()
+    def setUp(self):
+        self.user = User("brian","os","python@php.org","password@1")
         self.users = Users()
 
     def test_access_of_inexistent_user(self):
@@ -64,18 +64,18 @@ class UserSimulatorTestCases(unittest.TestCase):
         self.assertRaises(NullUserError, self.users.add_user, {})
 
     def test_users_increment_when_a_user_is_added(self):
-        users_len = len(users.users)
+        users_len = len(self.users.users)
         self.users.add_user({"firstname": "dennis", "lastname": "Deilson",
                              "email": "denilson@gmail.com", "password": "password"})
-        new_users_len = len(users.users)
+        new_users_len = len(self.users.users)
         self.assertEqual(users_len+1, new_users_len)
 
     def test_user_absence_on_deletion(self):
         self.users.delete_user(1)
-        self.assertRaises(NullUserError,self.users.get_user,1)
+        self.assertFalse("1" in self.users.users)
 
     def test_raise_user_not_found_exception_if_user_is_deleted(self):
-        pass
+        self.assertRaises(NullUserError, self.users.delete_user, 7)
 
 
 if __name__ == "__main__":
