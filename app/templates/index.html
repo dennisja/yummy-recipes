@@ -1,0 +1,112 @@
+
+{% extends "base.html" %}
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <p id="yummy-description">
+                    <strong>
+                        <em>
+                    Meet Yummy Recipes, a cool place where you can store, save, share and keep track of those cool recipes, the recipes you cherish.
+                    Can't wait to start managing your recipes? signin or register using the forms provided
+                        </em>
+             </strong>
+                </p>
+            </div>
+
+            <div class="col-sm-6">
+                <!--login form-->
+                <section class="custom-forms">
+                    <div class="card card-custom">
+                        <div class="card-block">
+                            <header class="form-headers custom-bg">
+                                <h2 class="card-title"><i class="fa fa-sign-in"></i> Sign in</h2>
+                            </header>
+                            <form method="POST" id="login-form">
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label for="email">Email address</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control form-control-sm" id="email" name="email" placeholder="johndoe@example.com">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label for="password">Password</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control form-control-sm" id="password" name="password" placeholder="Your Password">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 offset-sm-5">
+                                        <button type="submit" class="btn btn-sm btn-custom">Signin</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <!--login form-->
+                <section class="custom-forms">
+                    <div class="card card-custom">
+                        <div class="card-block">
+                            <header class="form-headers custom-bg">
+                                <h2 class="card-title"><i class="fa fa-user-register"></i> Register</h2>
+                            </header>
+                            <form method="POST" id="login-form">
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label for="fname">First Name</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control form-control-sm" id="fname" name="fname" placeholder="e.g John" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label for="lname">Last Name</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control form-control-sm" id="lname" name="lname" placeholder="johndoe@example.com" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label for="email_reg">Email address</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control form-control-sm" id="email_reg" name="email" placeholder="johndoe@example.com" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label for="password_reg">Password</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control form-control-sm" id="password_reg" name="password" placeholder="Your Password" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-3">
+                                        <label for="c_password">Confirm Password</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control form-control-sm" id="c_password" name="password" placeholder="Retype Password" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 offset-sm-5">
+                                        <button type="submit" class="btn btn-sm btn-custom">Register</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+   {% endblock %}
