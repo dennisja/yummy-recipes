@@ -73,7 +73,7 @@ body{
     -ms-box-shadow: 2px 2px 1px #FFE0B2;
 }
 
-.custom-forms{
+.custom-forms, .custom-list-group{
     margin-bottom: 15px;
 }
 
@@ -124,3 +124,25 @@ body{
     border: 1px solid #FFE0B2;
     box-shadow: 1px 1px 1px #FFF3E0;
 }
+
+/*customizing the list groups*/
+.custom-list-group .list-group-item{
+    border: 1px solid #FFE0B2;
+    color: #E65100;
+}
+
+.custom-list-group .active, .custom-list-group .list-group-item:hover{
+    background-color: #ff9800;
+    color:white;
+}
+
+.custom-list-group .active:hover{
+    background-color: #F57C00;
+}
+
+@media all and (min-width:520px){
+    .custom-list-group{
+        margin-bottom: 50px;
+    }
+}
+

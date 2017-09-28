@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Add Recipe Category - Yummy Recipes</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/styles/external/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/styles/external/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="assets/styles/custom/main.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-toggleable-md navbar-custom fixed-top" id="navbar-custom">
+        <div class="container">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-bars" id="custom-toggle-button"></span>
+                </button>
+            <a class="navbar-brand" href="#">Yummy Recipes</a>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa fa-home"></i> Home <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa fa-coffee"></i> Recipes</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> User</a>
+                        <div class="dropdown-menu navbar-custom custom-dropdown" aria-labelledby="dropdown01">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#">Log Out</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-md-3">
+                <div class="list-group custom-list-group">
+                    <a href="#" class="list-group-item active">Add a Recipe</a>
+                    <a href="#" class="list-group-item list-group-item-action">Add Recipe Category</a>
+                </div>
+                <div class="list-group custom-list-group">
+                    <a href="#" class="list-group-item list-group-item-action">Recipe Category 1</a>
+                    <a href="#" class="list-group-item list-group-item-action">Recipe Category 2</a>
+                    <a href="#" class="list-group-item list-group-item-action">Recipe Category 3</a>
+                    <a href="#" class="list-group-item list-group-item-action">Recipe Category 4</a>
+                </div>
+            </div>
+            <div class="col-sm-8 col-md-9">
+                <section class="custom-forms">
+                    <div class="card card-custom">
+                        <div class="card-block">
+                            <header class="form-headers custom-bg">
+                                <h2 class="card-title"><i class="fa fa-plus"></i> Add a Recipe Category</h2>
+                            </header>
+                            <form method="POST" id="login-form">
+                                
+                                <div class="form-group row">
+                                    <div class="col-sm-3 offset-sm-1">
+                                        <label for="category">Category Name: </label>
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <select class="form-control" id="category" name="category">
+                                            <option selected>Choose...</option>
+                                            <option value="1">Recipe Category Five</option>
+                                            <option value="2">Recipe Category Six</option>
+                                            <option value="3">Recipe Category Seven</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 offset-sm-5">
+                                        <button type="submit" class="btn btn-custom">Add Recipe Category</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+        ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/styles/external/bootstrap/js/jquery.slim.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="assets/styles/external/bootstrap/js/jquery.slim.min.js"><\/script>')
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="assets/styles/external/bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/styles/external/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+</html>
