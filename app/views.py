@@ -15,7 +15,7 @@ def login_user():
 @app.route("/register",methods=["GET","POST"])
 def register_user():
     form_data = request.form
-    # //validate form form_data
+    # validate form form_data
     # if validation is passed
     # register_user user 
     # redirect user to login page while flashing a message
