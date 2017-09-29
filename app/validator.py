@@ -34,6 +34,9 @@ class Validate:
                         if each_rule == "no_number" and bool(re.compile("[0-9]").search(value)):
                             self.__errors.append("{} must contain no digits".format(self.__display[item]))
 
+                        if each_rule == "matches" and each_rule_value in source and value != source[each_rule_value]:
+                            self.__errors.append("{} must match {}".format(self.__display[each_rule_value], self.__display[item]))
+
             return self.__errors
 
         except KeyError as er:

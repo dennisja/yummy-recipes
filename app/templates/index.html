@@ -3,6 +3,30 @@
 
 {% block container %}
     <div class="container">
+        {% with success_messages = get_flashed_messages(category_filter=["success"]) %}
+            {% if success_messages %}
+            <div class="alert alert-success text-center alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {% for each_message in success_messages %}
+                    {{ each_message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith%}
+        {% with errors = get_flashed_messages(category_filter=["errors"]) %}
+        {% if errors %}
+        <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {% for each_message in errors %}
+                {{ each_message }}
+            {% endfor %}
+        </div>
+        {% endif %}
+    {% endwith%}
         <div class="row">
             <div class="col-sm-6">
                 <p id="yummy-description">
@@ -23,6 +47,18 @@
                             <header class="form-headers custom-bg">
                                 <h2 class="card-title"><i class="fa fa-sign-in"></i> Sign in</h2>
                             </header>
+                            {% with login_errors = get_flashed_messages(category_filter=["login_errors"]) %}
+                                {% if login_errors %}
+                                    <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        {% for each_message in login_errors %}
+                                            {{ each_message }}<br>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            {% endwith%}
                             <form method="POST" id="login-form" action="/login">
                                 <div class="form-group row">
                                     <div class="col-sm-3">
@@ -56,6 +92,18 @@
                             <header class="form-headers custom-bg">
                                 <h2 class="card-title"><i class="fa fa-user-register"></i> Register</h2>
                             </header>
+                            {% with reg_errors = get_flashed_messages(category_filter=["register_errors"]) %}
+                                {% if reg_errors %}
+                                    <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        {% for each_message in reg_errors %}
+                                            {{ each_message }}<br>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            {% endwith%}
                             <form method="POST" id="login-form" action="/register">
                                 <div class="form-group row">
                                     <div class="col-sm-3">
@@ -94,7 +142,7 @@
                                         <label for="c_password">Confirm Password</label>
                                     </div>
                                     <div class="col-sm-9">
-                                        <input type="password" class="form-control form-control-sm" id="c_password" name="password_r" placeholder="Retype Password" required>
+                                        <input type="password" class="form-control form-control-sm" id="c_password" name="c_password" placeholder="Retype Password" required>
                                     </div>
                                 </div>
                                 <div class="row">

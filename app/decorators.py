@@ -1,4 +1,4 @@
-from flask import session,render_template
+from flask import session,render_template,flash,redirect
 
 from functools import wraps
 
@@ -17,6 +17,8 @@ def disable_logout_access(func):
         """
         if "logged_in" in session:
             return func(*args, **kwargs)  # call the decorated function
-        return render_template("index.html")
+        
+        flash("You cannot access this page without logging in","errors")
+        return redirect("/")
 
     return wrapper
