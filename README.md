@@ -5,6 +5,7 @@ Meet yummy recipes, my challenge during the Andela Bootcamp. Its inspired by the
 
 Running the application.
 Browse to the application root folder (yummy) and run the command below.
+
 python run.py
 
 Appearance of some pages
