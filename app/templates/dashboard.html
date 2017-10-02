@@ -9,7 +9,7 @@
                             <img class="d-flex mr-3 profile-pic" src="static/assets/media/images/default/profile.png" alt="John Doe's Picture">
                             <div class="media-body">
                                 <br>
-                                <h5 class="mt-0">John Doe</h5>
+                                <h5 class="mt-0">{{ user.firstname + " " + user.lastname }}</h5>
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,8 @@
                                     <a href="#" class="btn btn-custom">Checkout Recipe</a>
                                 </div>
                             </div>
-    
+                            {{ user }}
+                            
                         </div>
                         {% endfor %}
                     </div>
