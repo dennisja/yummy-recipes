@@ -15,8 +15,14 @@ def home_page():
 
 @app.route("/login", methods=["POST", "GET"])
 def login_user():
-    session["logged_in"] = True
-    return redirect(url_for("home"))
+    form_data = request.form
+    users = Users()
+    available_users = users.get_all_users()
+    if form_data["email"] in available_users and available_users[form_data["email"]]["password"] == form_data["password"]:
+        session["logged_in"] = form_data["email"]
+        return redirect(url_for("home"))
+    flash("Invalid username and password combination", "login_errors")
+    return render_template("index.html")
 
 
 @app.route("/logout")
@@ -29,12 +35,16 @@ def logout():
 @app.route("/home")
 @disable_logout_access  # custom decorator
 def home():
-    return render_template("dashboard.html", recipes=RecipesList(),user_is_logged_in = True)
+    users = Users()
+    my_user = users.get_all_users()[session["logged_in"]]
+    return render_template("dashboard.html", recipes=RecipesList(), user_is_logged_in=True, user=my_user)
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register_user():
     form_data = request.form
+    users = Users()
+    available_users = users.get_all_users()
     # validate form form_data
     validate = Validate()
 
@@ -67,7 +77,14 @@ def register_user():
     })
     # if validation is passed
     if not validation_errors:
-        flash("You have successfully registered and you can now login", "success")
+        if form_data["email"] in available_users:
+            flash("Email \"{}\" is already in use".format(form_data["email"]), "register_errors")
+        else:
+            users = Users()
+            user = User(len(users.get_all_users())+1, form_data["fname"], form_data["lname"], form_data["email"], form_data["password"])
+            users.add_user(user)
+            users.save_users(users.get_all_users())
+            flash("You have successfully registered and you can now login", "success")
     else:
         for validation_error in validation_errors:
             flash((validation_error), "register_errors")
