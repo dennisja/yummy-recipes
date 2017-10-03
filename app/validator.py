@@ -10,7 +10,10 @@ class Validate:
             "lname": "Last Name",
             "email": "Email",
             "password": "Password",
-            "c_password": "Confirm Password"
+            "c_password": "Confirm Password",
+            "name":"Name",
+            "description":"Description",
+            "category":"Category"
         }
 
     def validate_data(self, source, items):

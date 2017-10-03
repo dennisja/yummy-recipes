@@ -21,11 +21,11 @@
     
 
     <!-- Bootstrap core CSS -->
-    <link href="static/assets/styles/external/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="static/assets/styles/external/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ url_for('static',filename= 'assets/styles/external/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename= 'assets/styles/external/fontawesome/css/font-awesome.min.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="static/assets/styles/custom/main.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='assets/styles/custom/main.css') }}">
 </head>
 
 <body>
@@ -36,7 +36,7 @@
                 aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fa fa-bars" id="custom-toggle-button"></span>
                 </button>
-            <a class="navbar-brand" href="#">Yummy Recipes</a>
+            <a class="navbar-brand" href="{{ url_for("home")}}">Yummy Recipes</a>
             {% if user_is_logged_in %}
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
@@ -44,7 +44,7 @@
                         <a class="nav-link" href="{{ url_for("home")}}"><i class="fa fa-home"></i> Home <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-coffee"></i> Recipes</a>
+                        <a class="nav-link" href="{{ url_for("get_recipes") }}"><i class="fa fa-coffee"></i> Recipes</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> {{ user.firstname }}</a>
