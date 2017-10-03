@@ -103,10 +103,21 @@ def get_recipes():
     return render_template("recipes.html", recipes= recipes.values(), user_is_logged_in=True, user=my_user)
 
 
-@app.route("/recipe/<recipe_id>")
+@app.route("/recipe/<recipe_id>",methods = ["POST","GET"])
 @disable_logout_access
 def get_recipe(recipe_id):
-    return recipe_id
+    recipes = RecipesDict(session["logged_in"])
+    form_data = request.form
+    if not form_data:
+        return render_template("edit-recipe.html", recipe = recipes.fetch_user_recipes()[str(recipe_id)])
+    else:
+        new_recipe = Recipe(recipe_id, form_data["name"], form_data["description"], form_data["category"],session["logged_in"])
+        recipes.edit_recipe(session["logged_in"],recipe_id,new_recipe.recipe_details())
+
+        return render_template("recipes.html",
+            recipes = recipes.fetch_user_recipes().values(), 
+            user=Users().get_all_users()[session["logged_in"]],
+            user_is_logged_in = True)
 
 
 @app.route("/add-recipe", methods=["POST","GET"])
@@ -134,7 +145,6 @@ def add_recipe():
             recips.add_recipe(recipe.recipe_details(),session["logged_in"])
             users = Users()
             user = users.get_all_users()[session["logged_in"]]
-            # return str(recips.fetch_user_recipes().values())
             return render_template("recipes.html", 
                     recipes = recips.fetch_user_recipes().values(),
                     user_is_logged_in = True,

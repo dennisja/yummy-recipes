@@ -24,11 +24,11 @@
                         {% for each_recipe in recipes %}
                         <div class="col-lg-4 col-sm-6">
                             <div class="card recipe-card">
-                                <img class="card-img-top" src="static/assets/media/images/default/recipe.png" alt="Recipe Image">
+                                <img class="card-img-top" src="{{ url_for('static', filename= 'assets/media/images/default/recipe.png') }}" alt="Recipe Image">
                                 <div class="card-block">
                                     <h4 class="card-title">{{ each_recipe.name }}</h4>
                                     <p class="card-text">{{ each_recipe.description }}</p>
-                                    <a href="/recipe/{{ each_recipe.id }}" class="btn btn-custom">Checkout Recipe</a>
+                                    <a href="/recipe/{{ each_recipe.id }}" class="btn btn-custom">Edit Recipe</a>
                                 </div>
                             </div>
                         </div>

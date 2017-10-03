@@ -161,11 +161,11 @@ class RecipesDict():
         return recipes[user_email]
 
     def add_recipe(self, recipe, user_email):
-        self.recipes[str(len(self.recipes)+1)] = recipe
+        self.recipes[str(len(self.recipes) + 1)] = recipe
 
     def edit_recipe(self, user_email, recipe_id, new_recipe):
-        if user_email in self.recipes:
-            self.recipes[user_email][str(recipe_id)] = new_recipe
+        if recipe_id in self.recipes:
+            self.recipes[str(recipe_id)] = new_recipe
         else:
             raise RecipeNotFoundError("Recipe Not found")
 
