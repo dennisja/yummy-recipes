@@ -54,7 +54,7 @@ class ValidationTestCases(unittest.TestCase):
 
 class UserSimulatorTestCases(unittest.TestCase):
     def setUp(self):
-        self.user = User("brian", "os", "python@php.org", "password@1")
+        self.user = User(1,"brian", "os", "python@php.org", "password@1")
         self.users = Users()
 
     def test_access_of_inexistent_user(self):
@@ -65,14 +65,13 @@ class UserSimulatorTestCases(unittest.TestCase):
 
     def test_users_increment_when_a_user_is_added(self):
         users_len = len(self.users.users)
-        self.users.add_user({"firstname": "dennis", "lastname": "Deilson",
-                             "email": "denilson@gmail.com", "password": "password"})
+        self.users.add_user(User(1,"dennis","Deilson","denilson@gmail.com","password"))
         new_users_len = len(self.users.users)
         self.assertEqual(users_len + 1, new_users_len)
 
     def test_user_absence_on_deletion(self):
-        self.users.delete_user(1)
-        self.assertFalse("1" in self.users.users)
+        self.users.delete_user("dennisjjagwe@gmail.com")
+        self.assertFalse("dennisjjagwe@gmail.com" in self.users.users)
 
     def test_raise_user_not_found_exception_if_user_is_deleted(self):
         self.assertRaises(NullUserError, self.users.delete_user, 7)
