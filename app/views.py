@@ -120,6 +120,19 @@ def get_recipe(recipe_id):
             user_is_logged_in = True)
 
 
+@app.route("/delete-recipe/<recipe_id>",methods=["POST","GET"])
+@disable_logout_access
+def delete_recipe(recipe_id):
+    recipes = RecipesDict(session["logged_in"])
+    available_recipes = recipes.fetch_user_recipes()
+    available_recipes.pop(str(recipe_id))
+    return render_template("recipes.html",
+            recipes = available_recipes.values(), 
+            user=Users().get_all_users()[session["logged_in"]],
+            user_is_logged_in = True)
+
+
+
 @app.route("/add-recipe", methods=["POST","GET"])
 @disable_logout_access
 def add_recipe():
@@ -151,7 +164,7 @@ def add_recipe():
                     user = user
                     )
         return str(request.form)
-    return render_template("add-recipe.html", page_title="Add a Recipe")
+    return render_template("add-recipe.html", page_title="Add a Recipe",user_is_logged_in=True, user = Users().get_all_users()[session["logged_in"]])
 
 
 @app.route("/add-recipe-category")
