@@ -1,0 +1,47 @@
+{% extends "base.html" %} 
+{% block container %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4 col-md-3">
+            <div class="list-group custom-list-group">
+                    <a href="{{ url_for('add_recipe') }}" class="list-group-item active">Add a Recipe</a>
+                    <a href="{{ url_for('add_recipe_category') }}" class="list-group-item list-group-item-action">Add Recipe Category</a>
+            </div>
+            <div class="list-group custom-list-group">
+                <a href="#" class="list-group-item list-group-item-action">Recipe Category 1</a>
+                <a href="#" class="list-group-item list-group-item-action">Recipe Category 2</a>
+                <a href="#" class="list-group-item list-group-item-action">Recipe Category 3</a>
+                <a href="#" class="list-group-item list-group-item-action">Recipe Category 4</a>
+            </div>
+        </div>
+        <div class="col-sm-8 col-md-9">
+            <section class="recipes-section overide-bgcolor">
+                <header class="section-headers custom-bg">
+                    <h1>{{ user.firstname + " " + user.lastname }} Recipes</h1>
+                </header>
+                <div class="recipes-card-holder row">
+                    {% if recipes %} 
+                        {% for each_recipe in recipes %}
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="card recipe-card">
+                                <img class="card-img-top" src="static/assets/media/images/default/recipe.png" alt="Recipe Image">
+                                <div class="card-block">
+                                    <h4 class="card-title">{{ each_recipe.name }}</h4>
+                                    <p class="card-text">{{ each_recipe.description }}</p>
+                                    <a href="/recipe/{{ each_recipe.id }}" class="btn btn-custom">Checkout Recipe</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %} 
+                    {% else %}
+                        <p class="text-center">
+                            No recipes yet
+                        </p>
+                    {% endif %}
+                </div>
+            </section>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

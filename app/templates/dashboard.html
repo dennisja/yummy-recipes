@@ -31,20 +31,22 @@
                         <h1>Favourite Recipes</h1>
                     </header>
                     <div class="recipes-card-holder row">
-                        {% for each_recipe in recipes %}
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="card recipe-card">
-                                <img class="card-img-top" src="static/assets/media/images/default/recipe.png" alt="Recipe Image">
-                                <div class="card-block">
-                                    <h4 class="card-title">{{ each_recipe.name }}</h4>
-                                    <p class="card-text">{{ each_recipe.description }}</p>
-                                    <a href="#" class="btn btn-custom">Checkout Recipe</a>
+                        {% if recipes %}
+                            {% for each_recipe in recipes %}
+                            <div class="col-lg-4 col-sm-6">
+                                <div class="card recipe-card">
+                                    <img class="card-img-top" src="static/assets/media/images/default/recipe.png" alt="Recipe Image">
+                                    <div class="card-block">
+                                        <h4 class="card-title">{{ each_recipe.name }}</h4>
+                                        <p class="card-text">{{ each_recipe.description }}</p>
+                                        <a href="#" class="btn btn-custom">Checkout Recipe</a>
+                                    </div>
                                 </div>
                             </div>
-                            {{ user }}
-                            
-                        </div>
-                        {% endfor %}
+                            {% endfor %}
+                        {% else %}
+                            <p class="text-center">You have no Recipes Yet</p>
+                        {% endif %}
                     </div>
                 </section>
             </div>

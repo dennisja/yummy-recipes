@@ -44,7 +44,7 @@
                         <a class="nav-link" href="{{ url_for("home")}}"><i class="fa fa-home"></i> Home <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa fa-coffee"></i> Recipes</a>
+                        <a class="nav-link" href="{{ url_for("get_recipes") }}"><i class="fa fa-coffee"></i> Recipes</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> {{ user.firstname }}</a>
