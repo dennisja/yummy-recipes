@@ -1,7 +1,9 @@
 __pycache__
-venv
 users.pickle
 users.txt
 yummy.txt
 .coverage
 .idea
+venv/
+app/__pycache__
+

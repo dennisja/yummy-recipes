@@ -138,40 +138,44 @@ class RecipeCategoryDict():
 class RecipesDict():
     def __init__(self, user_email):
         self.recipes = self.__get_user_recipes(user_email)
+        self.all_recipes = self.read_recipes()
 
     def __get_user_recipes(self, user_email):
-        recipes = {
-            "dennisjjagwe@gmail.com": {
-                "1": {
-                    "id": "1",
-                    "name": "Banana Crumbs",
-                    "description": "Keep calm, You got to love banana Test it and see",
-                    "status": "0",
-                    "category":"1"
-                },
-                "2": {
-                    "id": "2",
-                    "name": "Crispy Crumbs",
-                    "description": "Keep calm, You got to love Crispy crumbs and eat them",
-                    "status": "1",
-                    "category": "1"
-                }
-            }
-        }
-        return recipes[user_email]
+        recipes = self.read_recipes()
+        if user_email in recipes:
+            return recipes[user_email]
+        else:
+            return {}
 
     def add_recipe(self, recipe, user_email):
-        self.recipes[str(len(self.recipes) + 1)] = recipe
+        if len(self.recipes):
+            new_recipe_id = int(sorted([key for key in self.recipes.keys()])[-1]) + 1
+        else:
+            new_recipe_id = 1
+        self.recipes[str(new_recipe_id)] = recipe
+        self.save_all_recipes(self.recipes, user_email)
 
     def edit_recipe(self, user_email, recipe_id, new_recipe):
         if recipe_id in self.recipes:
             self.recipes[str(recipe_id)] = new_recipe
+            self.save_all_recipes(self.recipes, user_email)
         else:
             raise RecipeNotFoundError("Recipe Not found")
 
     def fetch_user_recipes(self):
         return self.recipes
 
+    def save_all_recipes(self, new_recipes, email):
+        self.all_recipes[email] = new_recipes
+        """ Saves recipes dictionary """
+        with open("recipes.pickle", "wb") as recipes_:
+            pickle.dump(self.all_recipes, recipes_)
+
+    def read_recipes(self):
+        """ Reads recipes dictionary """
+        with open("recipes.pickle", "rb") as recipes:
+            all_recipes = pickle.load(recipes)
+        return all_recipes
 
 class RecipesList(list):
     pass
