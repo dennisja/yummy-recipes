@@ -100,6 +100,7 @@ def get_recipes():
     users = Users()
     my_user = users.get_all_users()[session["logged_in"]]
     recipes = RecipesDict(session["logged_in"]).fetch_user_recipes()
+    # return str(recipes.values())
     return render_template("recipes.html", recipes= recipes.values(), user_is_logged_in=True, user=my_user)
 
 
@@ -109,7 +110,10 @@ def get_recipe(recipe_id):
     recipes = RecipesDict(session["logged_in"])
     form_data = request.form
     if not form_data:
-        return render_template("edit-recipe.html", recipe = recipes.fetch_user_recipes()[str(recipe_id)])
+        return render_template("edit-recipe.html", 
+                                recipe = recipes.fetch_user_recipes()[str(recipe_id)],
+                                user_is_logged_in = True,
+                                user = Users().get_all_users()[session["logged_in"]])
     else:
         new_recipe = Recipe(recipe_id, form_data["name"], form_data["description"], form_data["category"],session["logged_in"])
         recipes.edit_recipe(session["logged_in"],recipe_id,new_recipe.recipe_details())
@@ -126,6 +130,7 @@ def delete_recipe(recipe_id):
     recipes = RecipesDict(session["logged_in"])
     available_recipes = recipes.fetch_user_recipes()
     available_recipes.pop(str(recipe_id))
+    recipes.save_all_recipes(available_recipes,session["logged_in"])
     return render_template("recipes.html",
             recipes = available_recipes.values(), 
             user=Users().get_all_users()[session["logged_in"]],
@@ -154,7 +159,11 @@ def add_recipe():
         if not validation_errors:
             recips = RecipesDict(session["logged_in"])
             existing_recipes = recips.fetch_user_recipes()
-            recipe = Recipe(len(existing_recipes)+1, form_data["name"], form_data["description"], form_data["category"],session["logged_in"])
+            if len(existing_recipes):
+                new_recipe_id = int(sorted([key for key in existing_recipes.keys()])[-1]) + 1
+            else:
+                new_recipe_id = 1
+            recipe = Recipe(new_recipe_id, form_data["name"], form_data["description"], form_data["category"],session["logged_in"])
             recips.add_recipe(recipe.recipe_details(),session["logged_in"])
             users = Users()
             user = users.get_all_users()[session["logged_in"]]
